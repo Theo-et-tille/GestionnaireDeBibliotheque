@@ -4,13 +4,13 @@ $bdd = new PDO('mysql:host=localhost;dbname=sle_biblio_structure;charset=utf8', 
 
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
-$email = $_POST['email'];
+$email = $_POST['emaili'];
 $tel_fixe = $_POST['tel_fixe'];
 $tel_portable = $_POST['tel_portable'];
 $rue = $_POST['rue'];
 $cp = $_POST['cp'];
 $ville = $_POST['ville'];
-$mdp = $_POST['mdp'];
+$mdp = $_POST['mdpi'];
 
 $req = $bdd->prepare('INSERT INTO inscrit(nom,prenom,email,tel_fixe,tel_portable,rue,cp,ville,mdp) VALUES(:nom,:prenom,:email,:tel_fixe,:tel_portable,:rue,:cp,:ville,:mdp)');
 $req->execute(array(

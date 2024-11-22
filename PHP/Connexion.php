@@ -2,8 +2,8 @@
 
 $bdd = new PDO('mysql:host=localhost;dbname=sle_biblio_structure;charset=utf8', 'root');
 
-$email = $_POST['email'];
-$mdp = $_POST['mdp'];
+$email = $_POST['emailc'];
+$mdp = $_POST['mdpc'];
 
 $req = $bdd->prepare('SELECT * FROM inscrit WHERE email = :email AND mdp = :mdp');
 $req->execute(array('email' => $email, 'mdp' => $mdp));
@@ -14,5 +14,5 @@ if (!$res){
     echo "rater";
 }else{
     session_start();
-    header("Location: PageMembre.html");
+    header("Location: ../HTML/PageMembre.html");
 }
