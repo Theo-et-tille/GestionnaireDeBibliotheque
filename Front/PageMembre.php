@@ -5,6 +5,6 @@
     <title>Page Membre</title>
 </head>
 <body>
-<p>Page Membre</p>
+<p>Bienvenue<?php ?></p>
 </body>
 </html>
