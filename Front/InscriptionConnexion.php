@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="../CSS/style.css">
 </head>
 <body>
-<form action="../PHP/Inscription.php" method="post">
+<form action="../Back/Inscription.php" method="post">
     <table>
         <tr>
             <td>
@@ -40,36 +41,36 @@
         <tr>
             <td>
                 <label for="rue">Rue : </label>
-                <input type="text" id="rue" name="rue" max="80">
+                <input type="text" id="rue" name="rue" max="80" required>
             </td>
         </tr>
         <tr>
             <td>
                 <label for="cp">Code postal : </label>
-                <input type="text" id="cp" name="cp" max="5">
+                <input type="text" id="cp" name="cp" max="5" required>
             </td>
         </tr>
         <tr>
             <td>
                 <label for="ville">Ville : </label>
-                <input type="text" id="ville" name="ville" max="50">
+                <input type="text" id="ville" name="ville" max="50" required>
             </td>
         </tr>
         <tr>
             <td>
                 <label for="mdpi">Mot de passe : </label>
-                <input type="password" id="mdpi" name="mdpi" max="50">
+                <input type="password" id="mdpi" name="mdpi" max="50" required>
             </td>
         </tr>
         <tr>
             <td>
-                <input type="submit" name="envoyer" value="S'inscire">
+                <input type="submit" name="Inscription" value="S'inscire">
             </td>
         </tr>
     </table>
 </form>
 <hr>
-<form action="../PHP/Connexion.php" method="post">
+<form action="../Back/Connexion.php" method="post">
     <table>
         <tr>
             <td>
@@ -80,15 +81,27 @@
         <tr>
             <td>
                 <label for="mdpc">Mot de passe : </label>
-                <input type="password" id="mdpc" name="mdpc" max="50">
+                <input type="password" id="mdpc" name="mdpc" max="50" required>
             </td>
         </tr>
         <tr>
             <td>
-                <input type="submit" name="envoyer" value="Connexion">
+                <?php
+                $refu = include '../Back/Connexion.php';
+                var_dump($refu);
+                if (!$refu){
+                    echo"<p>Email ou Mot de Passe Incorrect ou compte inexistant</p>";
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="Connection" value="Connexion">
             </td>
         </tr>
     </table>
 </form>
+
 </body>
 </html>
