@@ -9,7 +9,7 @@
 session_start();
 if (isset($_SESSION['id_user'])) {
     echo '
-    <form action="PageMembre.php">
+    <form action="Front/PageMembre.php">
         <input type="submit" value="Page Membre">
     </form>    
     ';

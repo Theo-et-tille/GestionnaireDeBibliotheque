@@ -8,7 +8,7 @@
 <?php
 session_start();
 if (isset($_SESSION['id_user'])) {
-    header('Location: Back/PageMembre.php');
+    header('Location: ../Front/PageMembre.php');
 }
 ?>
 <body>
