@@ -64,6 +64,15 @@
         </tr>
         <tr>
             <td>
+                <?php
+                if (isset($_GET['error'])) {
+                    echo"<p>Le compte existe déjà</p>";
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <input type="submit" name="Inscription" value="S'inscire">
             </td>
         </tr>
@@ -87,9 +96,7 @@
         <tr>
             <td>
                 <?php
-                $refu = include '../Back/Connexion.php';
-                var_dump($refu);
-                if (!$refu){
+                if (isset($_GET['error'])) {
                     echo"<p>Email ou Mot de Passe Incorrect ou compte inexistant</p>";
                 }
                 ?>
