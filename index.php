@@ -11,7 +11,12 @@ if (isset($_SESSION['id_user'])) {
     echo '
     <form action="Front/PageMembre.php">
         <input type="submit" value="Page Membre">
-    </form>    
+    </form>  
+    <br>
+    <form action="Back/Connexion.php" method="post">
+        <input type="submit" name="Deconnexion" value="Déconnexion">
+    </form>
+  
     ';
 }else{
     echo '
@@ -21,10 +26,5 @@ if (isset($_SESSION['id_user'])) {
     ';
 }
 ?>
-<br>
-<form action="Back/Connexion.php" method="post">
-    <input type="submit" name="Deconnexion" value="Déconnexion">
-</form>
-
 </body>
 </html>
