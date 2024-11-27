@@ -5,6 +5,12 @@
     <title>Title</title>
     <link rel="stylesheet" href="../CSS/style.css">
 </head>
+<?php
+session_start();
+if (isset($_SESSION['id_user'])) {
+    header('Location: Back/PageMembre.php');
+}
+?>
 <body>
 <form action="../Back/Inscription.php" method="post">
     <table>
