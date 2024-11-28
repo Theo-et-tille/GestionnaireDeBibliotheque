@@ -31,5 +31,5 @@ if (!$resVerif) {
     ));
     echo "tu t'es bien inscrit";
 }else{
-    header("Location:../Front/InscriptionConnexion.php?error= Email Deja Cree");
+    header("Location:../Front/PageInscription.php?error= Email Deja Cree");
 }

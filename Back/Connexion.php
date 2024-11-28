@@ -12,7 +12,7 @@ if ($_POST != NULL) {
     $resConnexion = $reqConnexion->fetch();
 
     if (!$resConnexion) {
-        header("Location:../Front/InscriptionConnexion.php?error= Fail");
+        header("Location:../Front/PageConnexion.php?error= Fail");
     }else {
         $_SESSION['id_user'] = $resConnexion['id_inscrit'];
         $_SESSION['user'] = $resConnexion['prenom'];

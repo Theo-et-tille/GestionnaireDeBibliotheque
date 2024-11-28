@@ -20,8 +20,12 @@ if (isset($_SESSION['id_user'])) {
     ';
 }else{
     echo '
-    <form action="Front/InscriptionConnexion.php">
-        <input type="submit" name="InsCon" value="Inscription / Connexion">
+    <form action="Front/PageInscription.php">
+        <input type="submit" name="Inscription" value="Inscription">
+    </form>
+    <br>
+    <form action="Front/PageConnexion.php">
+        <input type="submit" name="Connexion" value="Connexion">
     </form>
     ';
 }
