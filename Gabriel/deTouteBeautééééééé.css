@@ -1,0 +1,23 @@
+body {
+    background-color: white;
+    width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+*{
+    font-family: sans-serif;
+
+}
+html {
+    background-color: mediumpurple;
+}
+table{
+    margin: auto;
+
+}
+h2{
+    text-align: center;
+}
+h3{
+    text-align: center;
+}
