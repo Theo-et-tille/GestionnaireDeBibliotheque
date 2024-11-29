@@ -1,6 +1,5 @@
 <?php
-
-$bdd = new PDO('mysql:host=localhost;dbname=sle_biblio_structure;charset=utf8', 'root');
+$bdd = include "../BDD/BDD.php";
 
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
@@ -29,7 +28,7 @@ if (!$resVerif) {
         'ville' => $ville,
         'mdp' => $mdp
     ));
-    echo "tu t'es bien inscrit";
+    header('Location: ../Front/PageConnexion.php?Inscrit=true');
 }else{
     header("Location:../Front/PageInscription.php?error= Email Deja Cree");
 }

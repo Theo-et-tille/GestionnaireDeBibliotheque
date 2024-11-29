@@ -1,6 +1,5 @@
 <?php
-//$bdd = include "../BDD/BDD.php";
-$bdd = new PDO('mysql:host=localhost;dbname=sle_biblio_structure;charset=utf8', 'root');
+$bdd = include "../BDD/BDD.php";
 session_start();
 
 if ($_POST != NULL) {
@@ -15,6 +14,7 @@ if ($_POST != NULL) {
         header("Location:../Front/PageConnexion.php?error= Fail");
     }else {
         $_SESSION['id_user'] = $resConnexion['id_inscrit'];
+        $_SESSION['role'] = $resConnexion['role'];
         $_SESSION['user'] = $resConnexion['prenom'];
         header("Location: ../Front/PageMembre.php");
     }

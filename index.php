@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Index</title>
+    <title>Page d'accueil</title>
 </head>
 <body>
 <?php

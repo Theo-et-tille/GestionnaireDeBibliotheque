@@ -16,6 +16,17 @@ if (isset($_SESSION['id_user'])) {
     <table>
         <tr>
             <td>
+                <?php
+                if (isset($_GET['Inscrit'])) {
+                    echo "
+                    <p>Tu t'es bien inscrit tu peux, tu peux te connecter</p>
+                    ";
+                }
+                ?>
+            </td>
+        </tr>
+        <tr>
+            <td>
                 <label for="emailc"> Mail : </label>
                 <input type="email" id="emailc" name="emailc" max="100" required>
             </td>
