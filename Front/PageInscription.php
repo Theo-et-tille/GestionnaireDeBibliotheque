@@ -5,7 +5,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="../PHP/Inscription.php" method="post">
+<form action="../Back/Inscription.php" method="post">
     <table>
         <tr>
             <td>
@@ -40,52 +40,39 @@
         <tr>
             <td>
                 <label for="rue">Rue : </label>
-                <input type="text" id="rue" name="rue" max="80">
+                <input type="text" id="rue" name="rue" max="80" required>
             </td>
         </tr>
         <tr>
             <td>
                 <label for="cp">Code postal : </label>
-                <input type="text" id="cp" name="cp" max="5">
+                <input type="text" id="cp" name="cp" max="5" required>
             </td>
         </tr>
         <tr>
             <td>
                 <label for="ville">Ville : </label>
-                <input type="text" id="ville" name="ville" max="50">
+                <input type="text" id="ville" name="ville" max="50" required>
             </td>
         </tr>
         <tr>
             <td>
                 <label for="mdpi">Mot de passe : </label>
-                <input type="password" id="mdpi" name="mdpi" max="50">
+                <input type="password" id="mdpi" name="mdpi" max="50" required>
             </td>
         </tr>
         <tr>
             <td>
-                <input type="submit" name="envoyer" value="S'inscire">
-            </td>
-        </tr>
-    </table>
-</form>
-<hr>
-<form action="../PHP/Connexion.php" method="post">
-    <table>
-        <tr>
-            <td>
-                <label for="emailc"> Mail : </label>
-                <input type="email" id="emailc" name="emailc" max="100" required>
+                <?php
+                if (isset($_GET['error'])) {
+                    echo"<p>Le compte existe déjà</p>";
+                }
+                ?>
             </td>
         </tr>
         <tr>
             <td>
-                <label for="mdpc">Mot de passe : </label>
-                <input type="password" id="mdpc" name="mdpc" max="50">
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <input type="submit" name="envoyer" value="Connexion">
+                <input type="submit" name="Inscription" value="S'inscire">
             </td>
         </tr>
     </table>
