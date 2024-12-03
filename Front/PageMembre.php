@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Page Membre</title>
@@ -11,6 +11,11 @@ session_start();
 $reqVerif = $bdd->prepare('SELECT * FROM inscrit WHERE id_inscrit = :id_inscrit');
 $reqVerif->execute(array('id_inscrit' => $_SESSION['id_user']));
 $resVerif = $reqVerif->fetch();
+if(isset($resVerif['role'])){
+    $reqAllProfil = $bdd->prepare('SELECT * FROM inscrit');
+    $reqAllProfil->execute();
+    $tabAllProfil = $reqAllProfil->fetchall();
+}
 ?>
 <body>
 <p>Bienvenue <?=$_SESSION['user']?></p>
@@ -104,6 +109,32 @@ $resVerif = $reqVerif->fetch();
             ?>
         </td>
     </tr>
+</table>
+<table>
+
+
+            <?php
+            var_dump(count($tabAllProfil));
+            foreach ($tabAllProfil as $profil) {
+                echo "
+        
+            <tr>
+                <td>$profil[id_inscrit]</td>
+                <td>$profil[nom]</td>
+                <td>$profil[prenom]</td>
+                <td>$profil[email]</td>
+                <td>$profil[tel_fixe]</td>
+                <td>$profil[tel_portable]</td>
+                <td>$profil[rue], $profil[cp], $profil[ville]</td>
+            </tr>    
+            
+        ";
+                //foreach ($profil as $key => $value) {
+                //    echo $key . " => " . $value . "<br>";
+                //}
+            }
+            ?>
+
 </table>
 </form>
 </body>
