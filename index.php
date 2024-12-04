@@ -6,6 +6,9 @@
 </head>
 <body>
 <?php
+if (isset($_GET['supp'])) {
+    echo "<p>Vous avez sup votre compte</p>";
+}
 session_start();
 if (isset($_SESSION['id_user'])) {
     echo '

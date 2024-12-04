@@ -19,13 +19,29 @@ if(isset($resVerif['role'])){
 ?>
 <body>
 <p>Bienvenue <?=$_SESSION['user']?></p>
-<form action="../Back/Connexion.php" method="post">
-    <input type="submit" name="Deconnexion" value="Déconnexion">
-</form>
-<br>
-<form action="../index.php">
-    <input type="submit" value="Page d'accueil">
-</form>
+<table>
+    <tr>
+        <td>
+            <form action="../Back/Connexion.php" method="post">
+                <input type="submit" name="Deconnexion" value="Déconnexion">
+            </form>
+        </td>
+        <td>
+            <form action="../Back/Suppression.php" method="post">
+                <input type="submit" name="sup" value="Supprimmer mon compte">
+            </form>
+
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <form action="../index.php">
+                <input type="submit" value="Page d'accueil">
+            </form>
+        </td>
+    </tr>
+</table>
+
 <br>
 <form action="../Back/ModificationProfil.php" method="post">
 <table>
@@ -114,10 +130,10 @@ if(isset($resVerif['role'])){
 
 
             <?php
-            var_dump(count($tabAllProfil));
-            foreach ($tabAllProfil as $profil) {
-                echo "
-        
+            if (isset($resVerif['role'])) {
+                foreach ($tabAllProfil as $profil) {
+                    echo "
+            <table>
             <tr>
                 <td>$profil[id_inscrit]</td>
                 <td>$profil[nom]</td>
@@ -128,10 +144,13 @@ if(isset($resVerif['role'])){
                 <td>$profil[rue], $profil[cp], $profil[ville]</td>
             </tr>    
             
+</table>
+            
         ";
-                //foreach ($profil as $key => $value) {
-                //    echo $key . " => " . $value . "<br>";
-                //}
+                    //foreach ($profil as $key => $value) {
+                    //    echo $key . " => " . $value . "<br>";
+                    //}
+                }
             }
             ?>
 
