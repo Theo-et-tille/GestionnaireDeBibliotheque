@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<form action="../Back/Inscription.php" method="post">
+<form action="../Back/Inscrit/Inscription.php" method="post">
     <table>
         <tr>
             <td>
@@ -76,6 +76,10 @@
             </td>
         </tr>
     </table>
+</form>
+<br>
+<form action="../index.php">
+    <input type="submit" value="Page d'accueil">
 </form>
 </body>
 </html>
