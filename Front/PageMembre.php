@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Page Membre</title>
+    <title>Page Membree</title>
 </head>
 <?php
 $bdd = include "../BDD/BDD.php";
