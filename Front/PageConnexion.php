@@ -12,7 +12,7 @@ if (isset($_SESSION['id_user'])) {
 }
 ?>
 <body>
-<form action="../Back/Connexion.php" method="post">
+<form action="../Back/Inscrit/Connexion.php" method="post">
     <table>
         <tr>
             <td>
@@ -52,6 +52,10 @@ if (isset($_SESSION['id_user'])) {
             </td>
         </tr>
     </table>
+</form>
+<br>
+<form action="../index.php">
+    <input type="submit" value="Page d'accueil">
 </form>
 </body>
 </html>

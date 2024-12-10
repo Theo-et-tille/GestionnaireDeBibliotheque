@@ -22,12 +22,12 @@ if(isset($resVerif['role'])){
 <table>
     <tr>
         <td>
-            <form action="../Back/Connexion.php" method="post">
+            <form action="../Back/Inscrit/Connexion.php" method="post">
                 <input type="submit" name="Deconnexion" value="Déconnexion">
             </form>
         </td>
         <td>
-            <form action="../Back/Suppression.php" method="post">
+            <form action="../Back/Inscrit/Suppression.php" method="post">
                 <input type="submit" name="sup" value="Supprimmer mon compte">
             </form>
 
@@ -43,7 +43,7 @@ if(isset($resVerif['role'])){
 </table>
 
 <br>
-<form action="../Back/ModificationProfil.php" method="post">
+<form action="../Back/Inscrit/ModificationProfil.php" method="post">
 <table>
     <tr>
         <th>
@@ -126,14 +126,11 @@ if(isset($resVerif['role'])){
         </td>
     </tr>
 </table>
-<table>
-
-
             <?php
             if (isset($resVerif['role'])) {
+                echo "<table>";
                 foreach ($tabAllProfil as $profil) {
                     echo "
-            <table>
             <tr>
                 <td>$profil[id_inscrit]</td>
                 <td>$profil[nom]</td>
@@ -143,18 +140,23 @@ if(isset($resVerif['role'])){
                 <td>$profil[tel_portable]</td>
                 <td>$profil[rue], $profil[cp], $profil[ville]</td>
             </tr>    
-            
-</table>
-            
-        ";
-                    //foreach ($profil as $key => $value) {
-                    //    echo $key . " => " . $value . "<br>";
-                    //}
+            ";
                 }
+                echo "</table>";
+                var_dump($tabAllProfil);
             }
             ?>
-
-</table>
 </form>
+<label for="test">test</label>
+<select id="test" name="test">
+    <?php
+    foreach ($tabAllProfil as $profil) {
+        $i=0;
+        echo "<option value='$i'>$profil[1]</option>";
+        $i++;
+    }
+
+    ?>
+</select>
 </body>
 </html>

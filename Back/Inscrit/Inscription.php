@@ -1,5 +1,5 @@
 <?php
-$bdd = include "../BDD/BDD.php";
+$bdd = include "../../BDD/BDD.php";
 
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
@@ -28,7 +28,7 @@ if (!$resVerif) {
         'ville' => $ville,
         'mdp' => $mdp
     ));
-    header('Location: ../Front/PageConnexion.php?Inscrit=true');
+    header('Location: ../../Front/PageConnexion.php?Inscrit=true');
 }else{
-    header("Location:../Front/PageInscription.php?error= Email Deja Cree");
+    header("Location: ../../Front/PageInscription.php?error= Email Deja Cree");
 }

@@ -1,5 +1,5 @@
 <?php
-$bdd = include "../BDD/BDD.php";
+$bdd = include "../../BDD/BDD.php";
 
 session_start();
 

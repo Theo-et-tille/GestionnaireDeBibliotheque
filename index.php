@@ -16,7 +16,7 @@ if (isset($_SESSION['id_user'])) {
         <input type="submit" value="Page Membre">
     </form>  
     <br>
-    <form action="Back/Connexion.php" method="post">
+    <form action="Back/Inscrit/Connexion.php" method="post">
         <input type="submit" name="Deconnexion" value="Déconnexion">
     </form>
   
