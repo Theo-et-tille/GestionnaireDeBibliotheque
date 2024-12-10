@@ -1,17 +1,21 @@
 body {
     background-color: white;
-    width: 800px;
+    width: 500px;
     margin: auto;
     padding: 20px;
+    border-radius: 30px;
 }
 *{
     font-family: sans-serif;
 
 }
 html {
-    background-color: mediumpurple;
+margin: 250px auto;
+    text-align: center;
+    background-color: blanchedalmond;
 }
 table{
+
     margin: auto;
 
 }
