@@ -139,24 +139,25 @@ if(isset($resVerif['role'])){
                 <td>$profil[tel_fixe]</td>
                 <td>$profil[tel_portable]</td>
                 <td>$profil[rue], $profil[cp], $profil[ville]</td>
+                <td><form action='ModificationProfilAdmin.php' method='post'><input type='submit' name='$profil[id_inscrit]' value='Modif'></form></td>
+                <td><form action='ModificationProfilAdmin.php' method='post'><input type='submit' name='$profil[id_inscrit]' value='Modif'></form></td>
             </tr>    
             ";
                 }
                 echo "</table>";
                 var_dump($tabAllProfil);
+                echo '
+                <label for="test">test</label>
+<select id="test" name="test">';
+    foreach ($tabAllProfil as $profil) {
+        $i=0;
+        echo "<option value=`$i`>$profil[1]</option>";
+        $i++;
+    }
+echo '</select>';
+
             }
             ?>
 </form>
-<label for="test">test</label>
-<select id="test" name="test">
-    <?php
-    foreach ($tabAllProfil as $profil) {
-        $i=0;
-        echo "<option value='$i'>$profil[1]</option>";
-        $i++;
-    }
-
-    ?>
-</select>
 </body>
 </html>
