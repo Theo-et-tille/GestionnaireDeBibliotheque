@@ -7,3 +7,4 @@ if (!isset($_SESSION['role'])) {
     }
 }
 
+var_dump($_POST);
