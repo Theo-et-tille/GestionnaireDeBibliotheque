@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 28 nov. 2024 à 15:20
+-- Généré le : mer. 11 déc. 2024 à 08:18
 -- Version du serveur : 8.3.0
 -- Version de PHP : 8.2.18
 
@@ -190,20 +190,21 @@ CREATE TABLE IF NOT EXISTS `inscrit` (
   `cp` varchar(5) NOT NULL,
   `ville` varchar(50) NOT NULL,
   `mdp` varchar(50) NOT NULL,
+  `role` int DEFAULT NULL,
   PRIMARY KEY (`id_inscrit`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `inscrit`
 --
 
-INSERT INTO `inscrit` (`id_inscrit`, `nom`, `prenom`, `email`, `tel_fixe`, `tel_portable`, `rue`, `cp`, `ville`, `mdp`) VALUES
-(1, 'Lemoine', 'Sébastien', 's.lemoine@lprs.fr', '0', '33675574985', '5 Avenue du Général de Gaulle', '93440', 'Dugny', ''),
-(2, 'enfedaque', 'theo', 'llflflld@fjsld.com', '0112345678', '0612345678', 'rue du rue', '95470', 'FOsses', ''),
-(4, 'Enfedaque', 'Theo', 'a@a', '30394095', '3933249', 'iioroit lkelkg,kl', '98749', 'fkgelkk', '1234'),
-(8, 'Theo', 'Enfedqqu', 'b@b', '9838848', '3848573', 'tue', '98472', 'ville', '1234'),
-(9, 'rez', 'kkjhkj', 'kjbkj@khlk', 'nkjgkj', 'jkhgbj', 'vhjkbjhf', 'jkhkl', 'vjhkbklbh', 'khlmjomi'),
-(10, 'Sucebite', 'maqueue', 'lechouille@pute.fr', '01847518', '093584858', 'rue du zeub', '97706', 'Paris', '1234');
+INSERT INTO `inscrit` (`id_inscrit`, `nom`, `prenom`, `email`, `tel_fixe`, `tel_portable`, `rue`, `cp`, `ville`, `mdp`, `role`) VALUES
+(1, 'Lemoine', 'Sébastien', 's.lemoine@lprs.fr', '0', '33675574985', '5 Avenue du Général de Gaulle', '93440', 'Dugny', '', NULL),
+(2, 'enfedaque', 'theo', 'llflflld@fjsld.com', '0112345678', '0612345678', 'rue du rue', '95470', 'FOsses', '', NULL),
+(4, 'Enfedaque', 'Theo', 'a@a', '30394095', '3933249', '60 square d\'alsace', '95470', 'FOSSES', '1234', 0),
+(9, 'rez', 'kkjhkj', 'kjbkj@khlk', 'nkjgkj', 'jkhgbj', 'vhjkbjhf', 'jkhkl', 'vjhkbklbh', 'khlmjomi', NULL),
+(10, 'Sucebite', 'maqueue', 'lechouille@pute.fr', '01847518', '093584858', 'rue du zeub', '97706', 'Paris', '1234', NULL),
+(13, 'test', 'test', 'test@test', 'test', 'test', 'test', 'test', 'test', 'test', NULL);
 
 -- --------------------------------------------------------
 
