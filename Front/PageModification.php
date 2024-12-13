@@ -16,9 +16,6 @@ $resVerif = $reqVerif->fetch();
 ?>
 
 <body>
-
-
-<p>Que voulez-vous modifier <?=$_SESSION['user']?> ?</p>
 <table>
     <tr>
         <td>
@@ -33,7 +30,7 @@ $resVerif = $reqVerif->fetch();
     <table>
         <tr>
             <th>
-                <h3>Modifie ton profil</h3>
+                <h3>Modifie ton profil <?=$_SESSION['user']?></h3>
             </th>
         </tr>
         <tr>

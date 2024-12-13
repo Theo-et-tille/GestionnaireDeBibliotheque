@@ -8,7 +8,7 @@
 session_start();
 ?>
 <body>
-<p>Bienvenue <?=$_SESSION['user']?></p>
+<h2>Bienvenue <?=$_SESSION['user']?></h2>
 <table>
     <tr>
         <td>

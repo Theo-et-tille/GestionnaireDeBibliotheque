@@ -12,17 +12,14 @@ if (isset($_POST['ModificationP'])) {
     $rue = $_POST['rue'];
     $cp = $_POST['cp'];
     $ville = $_POST['ville'];
-    var_dump($email);
 
     $reqVerif = $bdd->prepare('SELECT email FROM inscrit WHERE email = :email');
     $reqVerif->execute(array('email' => $email));
     $resVerif = $reqVerif->fetch();
-    var_dump($resVerif);
 
     $reqEmail = $bdd->prepare('SELECT email FROM inscrit WHERE id_inscrit = :id_inscrit');
     $reqEmail->execute(array('id_inscrit' => $_SESSION['id_user']));
     $resEmail = $reqEmail->fetch();
-    var_dump($resEmail);
 
     if($resEmail['email'] == $email || !$resVerif){
         $reqModif = $bdd->prepare('UPDATE inscrit SET nom = :nom, prenom = :prenom, email = :email, tel_fixe = :tel_fixe, tel_portable = :tel_portable, rue = :rue, cp = :cp, ville = :ville WHERE id_inscrit = :id_inscrit');
@@ -51,7 +48,6 @@ if (isset($_POST['ModificationMDP'])) {
     $reqMdp = $bdd->prepare('SELECT mdp FROM inscrit WHERE id_inscrit = :id_inscrit');
     $reqMdp->execute(array('id_inscrit' => $_SESSION['id_user']));
     $resMdp = $reqMdp->fetch();
-    var_dump($resMdp);
 
     if($resMdp['mdp'] == $ancienMdp){
         $reqModif = $bdd->prepare('UPDATE inscrit SET mdp = :mdp WHERE id_inscrit = :id_inscrit');

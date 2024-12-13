@@ -19,9 +19,6 @@ $resVerif = $reqVerif->fetch();
 ?>
 
 <body>
-
-
-
 <table>
     <tr>
         <td>
