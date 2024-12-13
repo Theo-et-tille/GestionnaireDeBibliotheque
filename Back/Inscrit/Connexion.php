@@ -6,7 +6,7 @@ if ($_POST != NULL) {
     $email = $_POST['emailc'];
     $mdp = $_POST['mdpc'];
 
-    $reqConnexion = $bdd->prepare('SELECT * FROM inscrit WHERE email = :email AND mdp = :mdp');
+    $reqConnexion = $bdd->prepare('SELECT id_inscrit,prenom,role FROM inscrit WHERE email = :email AND mdp = :mdp');
     $reqConnexion->execute(array('email' => $email, 'mdp' => $mdp));
     $resConnexion = $reqConnexion->fetch();
 

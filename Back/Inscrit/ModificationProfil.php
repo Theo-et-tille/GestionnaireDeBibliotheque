@@ -12,7 +12,6 @@ if (isset($_POST['ModificationP'])) {
     $rue = $_POST['rue'];
     $cp = $_POST['cp'];
     $ville = $_POST['ville'];
-    $mdp = $_POST['mdp'];
     var_dump($email);
 
     $reqVerif = $bdd->prepare('SELECT email FROM inscrit WHERE email = :email');
@@ -26,7 +25,7 @@ if (isset($_POST['ModificationP'])) {
     var_dump($resEmail);
 
     if($resEmail['email'] == $email || !$resVerif){
-        $reqModif = $bdd->prepare('UPDATE inscrit SET nom = :nom, prenom = :prenom, email = :email, tel_fixe = :tel_fixe, tel_portable = :tel_portable, rue = :rue, cp = :cp, ville = :ville, mdp = :mdp WHERE id_inscrit = :id_inscrit');
+        $reqModif = $bdd->prepare('UPDATE inscrit SET nom = :nom, prenom = :prenom, email = :email, tel_fixe = :tel_fixe, tel_portable = :tel_portable, rue = :rue, cp = :cp, ville = :ville WHERE id_inscrit = :id_inscrit');
         $reqModif->execute(array(
             "nom" => $nom,
             "prenom" => $prenom,
@@ -36,7 +35,6 @@ if (isset($_POST['ModificationP'])) {
             "rue" => $rue,
             "cp" => $cp,
             "ville" => $ville,
-            "mdp" => $mdp,
             "id_inscrit" => $_SESSION['id_user']
         ));
         header('Location: ../../Front/PageModification.php?Modif=1');

@@ -2,38 +2,41 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Page de Modification</title>
+    <title>Page de Modification Admin</title>
 </head>
 
 <?php
-$bdd = include "../BDD/BDD.php";
 session_start();
-$reqVerif = $bdd->prepare('SELECT * FROM inscrit WHERE id_inscrit = :id_inscrit');
-$reqVerif->execute(array('id_inscrit' => $_SESSION['id_user']));
-$resVerif = $reqVerif->fetch();
+if (!isset($_SESSION['role'])) {
+    header('location: ../index.php');
+}
+$bdd = include "../BDD/BDD.php";
 
+$reqVerif = $bdd->prepare('SELECT * FROM inscrit WHERE id_inscrit = :id_inscrit');
+$reqVerif->execute(array('id_inscrit' => $_SESSION['idModifAdmin']));
+$resVerif = $reqVerif->fetch();
 
 ?>
 
 <body>
 
 
-<p>Que voulez-vous modifier <?=$_SESSION['user']?> ?</p>
+
 <table>
     <tr>
         <td>
-            <form action="PageMembre.php">
-                <input type="submit" value="Page Membre">
+            <form action="PageAdmin.php">
+                <input type="submit" value="Page Admin">
             </form>
         </td>
     </tr>
 </table>
 <br>
-<form action="../Back/Inscrit/ModificationProfil.php" method="post">
+<form action="../Back/Inscrit/ModifSuppProfilAdmin.php" method="post">
     <table>
         <tr>
             <th>
-                <h3>Modifie ton profil</h3>
+                <h3>Modification du Profil ID:<?=$_SESSION['idModifAdmin']?></h3>
             </th>
         </tr>
         <tr>
@@ -86,6 +89,7 @@ $resVerif = $reqVerif->fetch();
         </tr>
         <tr>
             <td>
+                <input type="hidden" name="id" id="id" value="<?= $resVerif['id_inscrit'] ?>">
                 <input type="submit" name="ModificationP" value="Modifier">
             </td>
         </tr>
@@ -107,14 +111,14 @@ $resVerif = $reqVerif->fetch();
         </tr>
     </table>
 </form>
-<form action="../Back/Inscrit/ModificationProfil.php" method="post">
+<form action="../Back/Inscrit/ModifSuppProfilAdmin.php" method="post">
     <table>
         <tr>
-            <th>Modifier Ton Mot de Passe</th>
+            <th>Modifier le Mot de Passe</th>
         </tr>
         <tr>
             <td>
-                <label for="mdp">Ancien Mot de passe : </label>
+                <label for="mdp"> Mot de passe Actuel : </label>
                 <input type="password" id="mdp" name="Ancienmdp" max="50">
             </td>
         </tr>
@@ -126,6 +130,7 @@ $resVerif = $reqVerif->fetch();
         </tr>
         <tr>
             <td>
+                <input type="hidden" name="id" id="id" value="<?= $resVerif['id_inscrit'] ?>">
                 <input type="submit" name="ModificationMDP" value="Modifier">
             </td>
         </tr>

@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Page d'Inscription</title>
 </head>
 <body>
 <form action="../Back/Inscrit/Inscription.php" method="post">
