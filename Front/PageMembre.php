@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Page Membree</title>
+    <?php require "../Back/bootstrap.html"?>
 </head>
 <?php
 session_start();

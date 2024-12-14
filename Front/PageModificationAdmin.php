@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Page de Modification Admin</title>
+    <?php require "../Back/bootstrap.html"?>
 </head>
 
 <?php
@@ -149,3 +150,5 @@ $resVerif = $reqVerif->fetch();
         </tr>
     </table>
 </form>
+</body>
+</html>

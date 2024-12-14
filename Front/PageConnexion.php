@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Page de Connexion</title>
     <link rel="stylesheet" href="../CSS/style.css">
+    <?php require "../Back/bootstrap.html"?>
 </head>
 <?php
 session_start();

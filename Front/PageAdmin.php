@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Page Admin</title>
+    <?php require "../Back/bootstrap.html"?>
 </head>
 <body>
 <form action="PageMembre.php">
@@ -66,3 +67,4 @@ if(isset($_SESSION['role'])) {
     header('location: ../index.php');
 }?>
 </body>
+</html>
