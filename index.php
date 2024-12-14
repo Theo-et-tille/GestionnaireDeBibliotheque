@@ -1,12 +1,22 @@
 <!DOCTYPE html>
-<html lang="fr">
+<?php
+session_start();
+if (!isset($_SESSION['mode'])) {
+    $_SESSION['mode'] = 0;
+}
+if ($_SESSION['mode'] == 0) {
+echo '<html lang="fr" data-bs-theme="dark">';
+}else{
+echo '<html lang="fr">';
+} ?>
 <head>
     <meta charset="UTF-8">
     <title>Page d'accueil</title>
     <?php require "Back/import.html"?>
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand bg-body-tertiary" data-bs-theme="dark">
+<div class="container-fluid">
+    <nav class="navbar fixed-top navbar-expand bg-body-tertiary">
         <div class="container-fluid">
             <a class="navbar-brand" href="index.php">Gestinonnaire de Bibliothèque</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +36,11 @@
                 </ul>
                 <ul class="navbar-nav">
                     <?php
-                    session_start();
+                    if ($_SESSION['mode'] == 0) {
+                        echo '<li class="nav-item"><form action="Back/Mode.php" method="post"><input class="btn btn-outline-light" type="submit" name="Light" value="Light"><input type="hidden" name="location" value="../index.php"></form></li>';
+                    }else{
+                        echo '<li class="nav-item"><form action="Back/Mode.php" method="post"><input class="btn btn-outline-dark" type="submit" name="Dark" value="Dark"><input type="hidden" name="location" value="../index.php"></form></li>';
+                    }
                     if (isset($_SESSION['id_user'])) {
                         echo '
                 <li class="nav-item"><form action="Front/PageMembre.php"><input type="submit" class="btn" value="Page Membre"></form></li>
@@ -34,8 +48,8 @@
                 ';
                     }else{
                         echo '
-                <li class="nav-item"><form action="Front/PageInscription.php"><input class="btn" type="submit" name="Inscription" value="Inscription"></form></li>
-                <li class="nav-item"><form action="Front/PageConnexion.php"><input class="btn" type="submit" name="Connexion" value="Connexion"></form>
+                <li class="nav-item"><form action="Front/PageInscription.php"><input class="btn" type="submit" value="Inscription"></form></li>
+                <li class="nav-item"><form action="Front/PageConnexion.php"><input class="btn" type="submit" value="Connexion"></form>
                 ';
                     }
                     ?>
@@ -43,6 +57,8 @@
             </div>
         </div>
     </nav>
+    <p class="taille">Hello</p>
+</div>
 <div class='modal fade' id=suppCompteModal>
     <div class='modal-dialog'>
         <div class='modal-content'>
@@ -60,14 +76,13 @@
 </div>
 <?php
 if (isset($_GET['supp'])) {
-    echo "<script>let supp = 1</script>" ;
-}?>
-<script>
+    echo "<script>let supp = 1
 if (supp === 1) {
     $(document).ready(function(){
         $('#suppCompteModal').modal('show');
     })
 }
-</script>
+    </script>" ;
+}?>
 </body>
 </html>

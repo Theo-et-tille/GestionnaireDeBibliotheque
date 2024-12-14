@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html lang="fr">
+<?php
+session_start();
+if (!isset($_SESSION['mode'])) {
+    $_SESSION['mode'] = 0;
+}
+if ($_SESSION['mode'] == 0) {
+    echo '<html lang="fr" data-bs-theme="dark">';
+}else{
+    echo '<html lang="fr">';
+} ?>
 <head>
     <meta charset="UTF-8">
     <title>Page Membree</title>
     <?php require "../Back/import.html"?>
 </head>
-<?php
-session_start();
-?>
 <body>
-<nav class="navbar fixed top navbar-expand bg-body-tertiary" data-bs-theme="dark">
+<nav class="navbar fixed top navbar-expand bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="../index.php">Gestinonnaire de Bibliothèque</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,6 +34,13 @@ session_start();
                 </li>
             </ul>
             <ul class="navbar-nav">
+                <?php
+                if ($_SESSION['mode'] == 0) {
+                    echo '<li class="nav-item"><form action="../Back/Mode.php" method="post"><input class="btn btn-outline-light" type="submit" name="Light" value="Light"><input type="hidden" name="location" value="../Front/PageMembre"></form></li>';
+                }else{
+                    echo '<li class="nav-item"><form action="../Back/Mode.php" method="post"><input class="btn btn-outline-dark" type="submit" name="Dark" value="Dark"><input type="hidden" name="location" value="../Front/PageMembre"></form></li>';
+                }
+                ?>
                 <li class="nav-item"><form action="../Back/Inscrit/Connexion.php" method="post"><input class="btn" type="submit" name="Deconnexion" value="Déconnexion"></form></li>
             </ul>
         </div>
