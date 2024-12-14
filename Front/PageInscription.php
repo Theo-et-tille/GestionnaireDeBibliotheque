@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Page d'Inscription</title>
-    <?php require "../Back/bootstrap.html"?>
+    <?php require "../Back/import.html"?>
 </head>
 <body>
 <form action="../Back/Inscrit/Inscription.php" method="post">

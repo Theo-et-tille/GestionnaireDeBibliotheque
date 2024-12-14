@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Page de Modification Admin</title>
-    <?php require "../Back/bootstrap.html"?>
+    <?php require "../Back/import.html"?>
 </head>
 
 <?php

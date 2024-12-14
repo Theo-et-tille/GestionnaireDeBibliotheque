@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Page de Modif Auteur</title>
     <link rel="stylesheet" href="../CSS/style.css">
-    <?php require "../Back/bootstrap.html"?>
+    <?php require "../Back/import.html"?>
 </head>
 <body>
 <?php ?>

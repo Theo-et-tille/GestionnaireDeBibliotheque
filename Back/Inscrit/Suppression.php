@@ -9,4 +9,4 @@ $reqSup->execute(array(
     "id_inscrit" => $_SESSION['id_user']
 ));
 session_destroy();
-header("Location: ../../index.php?supp=ok");
+header("Location: ../../index.php?supp=supp");
