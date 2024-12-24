@@ -53,7 +53,9 @@ if(isset($_SESSION['role'])) {
     $tabAllAuteur = $reqAllAuteur->fetchall();
     $reqAllAuteur->closeCursor();
 
-    echo "<table>";
+    echo "
+    <input type='text' id='myInput' onkeyup='myFunction()' placeholder='Search for names..' title='Type in a name'>
+    <table id='myTable'>";
     foreach ($tabAllAuteur as $auteur) {
         echo "
             <tr>
@@ -62,17 +64,40 @@ if(isset($_SESSION['role'])) {
                 <td>$auteur[prenom]</td>
                 <td>$auteur[date_naissance]</td>
                 <td>$auteur[ref_pays]</td>
-                <td><form action='../Back/Inscrit/ModifSuppProfilAdmin.php' method='post'><input type='submit' name='Supp' value='Suppression'><input type='hidden' name='id' value='$profil[id_inscrit]'></form></td>
-                <td><form action='PageModificationAdmin.php' method='post'><input type='submit' name='Modif' value='Modification'><input type='hidden' name='id' value='$profil[id_inscrit]'></form></td>
+                <td><form action='../Back/Auteur/Suppression.php' method='post'><input type='submit' name='Supp' value='Suppression'><input type='hidden' name='id' value='$profil[id_inscrit]'></form></td>
+                <td><form action='PageAjoutModifAuteur.php' method='post'><input type='submit' name='Modif' value='Modification'><input type='hidden' name='id' value='$profil[id_inscrit]'></form></td>
             </tr>    
             ";
     }
-    echo "<tr><td><form action='PageAjoutModif.php'></form></td></tr></table>";
     if (isset($_GET['Supp'])) {
         echo "La suppresion du profil ID:", $_SESSION['idModifAdmin'], " a été executer";
     }
 }else{
     header('location: ../index.php');
 }?>
+<script>
+    function myFunction() {
+        var input, filter, table, tr, id, nom, prenom, dateNaissance, i, idValue,nomValue, prenomValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        table = document.getElementById("myTable");
+        tr = table.getElementsByTagName("tr");
+        for (i = 0; i < tr.length; i++) {
+            id = tr[i].getElementsByTagName("td")[0];
+            nom = tr[i].getElementsByTagName("td")[1];
+            prenom = tr[i].getElementsByTagName("td")[2];
+            if (id && nom && prenom) {
+                idValue = id.textContent || id.innerText;
+                nomValue = nom.textContent || nom.innerText;
+                prenomValue = prenom.textContent || prenom.innerText;
+                if (idValue.toUpperCase().indexOf(filter) > -1 || nomValue.toUpperCase().indexOf(filter) > -1 || prenomValue.toUpperCase().indexOf(filter) > -1) {
+                    tr[i].style.display = "";
+                } else {
+                    tr[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
 </body>
 </html>

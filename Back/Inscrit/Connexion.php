@@ -22,5 +22,5 @@ if ($_POST != NULL) {
 
 if (isset($_POST['Deconnexion'])){
     session_destroy();
-    header("Location: ../../index.php");
+    header("Location: ../../index.php?deco=deco");
 }

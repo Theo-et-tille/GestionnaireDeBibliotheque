@@ -8,10 +8,14 @@ if ($_SESSION['mode'] == 0) {
     echo '<html lang="fr" data-bs-theme="dark">';
 }else{
     echo '<html lang="fr">';
-} ?>
+}
+if (!isset($_SESSION)) {
+    header("Location: ../index.php");
+}
+?>
 <head>
     <meta charset="UTF-8">
-    <title>Page Membree</title>
+    <title>Page Membre</title>
     <?php require "../Back/import.html"?>
 </head>
 <body>
@@ -36,51 +40,38 @@ if ($_SESSION['mode'] == 0) {
             <ul class="navbar-nav">
                 <?php
                 if ($_SESSION['mode'] == 0) {
-                    echo '<li class="nav-item"><form action="../Back/Mode.php" method="post"><input class="btn btn-outline-light" type="submit" name="Light" value="Light"><input type="hidden" name="location" value="../Front/PageMembre"></form></li>';
+                    echo '<li class="nav-item px-1"><form action="../Back/Mode.php" method="post"><input class="btn btn-outline-light" type="submit" name="Light" value="Light"><input type="hidden" name="location" value="../Front/PageMembre"></form></li>';
                 }else{
-                    echo '<li class="nav-item"><form action="../Back/Mode.php" method="post"><input class="btn btn-outline-dark" type="submit" name="Dark" value="Dark"><input type="hidden" name="location" value="../Front/PageMembre"></form></li>';
+                    echo '<li class="nav-item px-1"><form action="../Back/Mode.php" method="post"><input class="btn btn-outline-dark" type="submit" name="Dark" value="Dark"><input type="hidden" name="location" value="../Front/PageMembre"></form></li>';
+                }
+                if ($_SESSION['role'] == 0) {
+                    echo '<li class="nav-item px-1"><form action="../Front/PageAdmin.php"><input type="submit" class="btn" value="Page Admin"></form></li>';
                 }
                 ?>
-                <li class="nav-item"><form action="../Back/Inscrit/Connexion.php" method="post"><input class="btn" type="submit" name="Deconnexion" value="Déconnexion"></form></li>
+                <li class="nav-item px-1"><form action="../Back/Inscrit/Connexion.php" method="post"><input class="btn" type="submit" name="Deconnexion" value="Déconnexion"></form></li>
             </ul>
         </div>
     </div>
 </nav>
-<h2>Bienvenue <?=$_SESSION['user']?></h2>
-<table>
-    <tr>
-        <td>
-            <form action="../Back/Inscrit/Connexion.php" method="post">
-                <input type="submit" name="Deconnexion" value="Déconnexion">
-            </form>
-        </td>
-        <td>
-            <form action="../Back/Inscrit/Suppression.php" method="post">
-                <input type="submit" name="sup" value="Supprimmer mon compte">
-            </form>
-
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <form action="PageModification.php">
-                <input type="submit" value="Modification de votre profil">
-            </form>
-        </td>
-    </tr>
-    <?php
-    if(isset($_SESSION['role'])){
-        echo '
+<div class="container-fluid">
+    <h2>Bienvenue <?=$_SESSION['user']?></h2>
+    <table>
         <tr>
             <td>
-                <form action="PageAdmin.php">
-                    <input type="submit" value="Page Admin">
+                <form action="../Back/Inscrit/Suppression.php" method="post">
+                    <input type="submit" name="sup" value="Supprimmer mon compte">
+                </form>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="PageModification.php">
+                    <input type="submit" value="Modification de votre profil">
                 </form>
             </td>
         </tr>
-        ';
-    }
-    ?>
-</table>
+    </table>
+</div>
 </body>
 </html>

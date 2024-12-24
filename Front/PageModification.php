@@ -8,7 +8,11 @@ if ($_SESSION['mode'] == 0) {
     echo '<html lang="fr" data-bs-theme="dark">';
 }else{
     echo '<html lang="fr">';
-} ?>
+}
+if (!isset($_SESSION)) {
+    header("Location: ../index.php");
+}
+?>
 <head>
     <meta charset="UTF-8">
     <title>Page de Modification</title>
